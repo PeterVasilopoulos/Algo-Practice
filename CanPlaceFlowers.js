@@ -43,6 +43,8 @@ const canPlaceFlowers = (flowerbed, n) => {
             } else {
                 // if value after current is a 0, plant
                 planted++
+                // replace 0 with a 1
+                flowerbed[i] = 1
             }
         // if index is final index in array, only check before
         } else if(i == flowerbed.length - 1) {
@@ -50,6 +52,7 @@ const canPlaceFlowers = (flowerbed, n) => {
                 continue
             } else {
                 planted++
+                flowerbed[i] = 1
             }
         // if index is anything in the middle
         } else {
@@ -57,6 +60,7 @@ const canPlaceFlowers = (flowerbed, n) => {
                 continue
             } else {
                 planted++
+                flowerbed[i] = 1
             }
         }
     }
