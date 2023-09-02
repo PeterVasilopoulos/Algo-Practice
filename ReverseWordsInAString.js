@@ -29,7 +29,29 @@ const s3 = "a good    example"
 
 // Function
 const reverseWords = (s) => {
+    // create a variable to hold the new string
+    let result = ""
 
+    // loop through the string
+    for(let i = s.length - 1; i >= 0; i--) {
+        // if character is a space
+        if(s[i] == " ") {
+            result = " " + result
+
+        // if character is not a space
+        } else {
+            result = s[i] + result
+        }
+
+        if(s[i] !== " ") {
+            result = s[i] + result
+        } else {
+            result = " " + result
+        }
+    }
+
+    // return new string
+    return result
 }
 
 
