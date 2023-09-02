@@ -20,7 +20,7 @@ const s2 = "leetcode"
 // Function
 const reverseVowels = (s) => {
     // array with vowels
-    const vowels = ['a','e','i','o','u']
+    const vowels = ['a','e','i','o','u','A','E','I','O','U']
 
     // create new array to hold the string characters
     let word = new Array(s.length)
