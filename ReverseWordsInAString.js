@@ -29,29 +29,66 @@ const s3 = "a good    example"
 
 // Function
 const reverseWords = (s) => {
-    // create a variable to hold the new string
-    let result = ""
+    // create an array to hold the words in the string
+    let words = []
 
-    // loop through the string
-    for(let i = s.length - 1; i >= 0; i--) {
-        // if character is a space
-        if(s[i] == " ") {
-            result = " " + result
-
-        // if character is not a space
-        } else {
-            result = s[i] + result
-        }
-
+    // loop through the string and find all the words
+    for(let i = 0; i < s.length; i++) {
+        // search for letters
         if(s[i] !== " ") {
-            result = s[i] + result
-        } else {
-            result = " " + result
+            // create a variable to hold the second index
+            let wordEnd = i + 1
+
+            // continue until wordEnd is on a space and still in scope
+            while(s[wordEnd] !== " " && wordEnd < s.length) {
+                wordEnd++
+            }
+
+            // slice word and put into array
+            words.push(s.slice(i, wordEnd))
+
+            // replace i with wordEnd value
+            i = wordEnd
         }
     }
 
-    // return new string
+    // create a variable to hold the final string
+    let result = ""
+
+    // loop backwards through array and place words into string
+    for(let i = words.length - 1; i >= 0; i--) {
+        // if its on the final word, dont add a space after the word
+        if(i === 0) {
+            result += words[i]
+
+        // otherwise add the word and a space to result
+        } else {
+            result += words[i] + " "
+        }
+    }
+
+    // return result
     return result
+}
+
+
+const reverseWords2 = (s) => {
+    // split the string into an array separated on spaces
+    let words = s.split(" ")
+
+    // reset s to hold the new string
+    s = ""
+
+    // loop through words array and put into string
+    for(let i = words.length - 1; i >= 0; i--) {
+        // if i is not a space or empty, add to string
+        if(words[i] !== " " && words[i] !== "") {
+            s += words[i] + " "
+        }
+    }
+
+    // return trimmed version of string
+    return s.trim()
 }
 
 
