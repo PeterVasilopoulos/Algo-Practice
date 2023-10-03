@@ -63,11 +63,51 @@ const mergeSortedArray = (nums1, m, nums2, n) => {
     }
 }
 
+const mergeSortedArray2 = (nums1, m, nums2, n) => {
+    // create new array to hold the values
+    let newArr = []
+
+    // loop through both arrays
+    for(let i = 0, j = 0; i < m || j < n;) {
+        if(i >= m) {
+            // if at end of nums1, push nums2 value
+            newArr.push(nums2[j])
+            // increment j
+            j++
+        } else if(j >= n) {
+            // if at end of nums2, push nums1 value
+            newArr.push(nums1[i]) 
+            // increment i
+            i++
+        } else if(nums1[i] < nums2[j]) {
+            // if nums1 value is smaller, push nums1[i]
+            newArr.push(nums1[i])
+            // increment i
+            i++
+        } else if(nums2[j] < nums1[i]) {
+            // if nums2 value is smaller, push nums2[j]
+            newArr.push(nums2[j])
+            // increment j
+            j++
+        } else if (nums1[i] === nums2[j]) {
+            // if they are the same, push both
+            newArr.push(nums1[i])
+            newArr.push(nums2[j])
+            // increment both values
+            i++
+            j++
+        }
+    }
+
+    // set nums1 array equal to newArr
+    nums1.splice(0, nums1.length, ...newArr)
+}
+
 
 // Testing
-mergeSortedArray(nums1A, mA, nums2A, nA)
+mergeSortedArray2(nums1A, mA, nums2A, nA)
 console.log(nums1A)
-mergeSortedArray(nums1B, mB, nums2B, nB)
+mergeSortedArray2(nums1B, mB, nums2B, nB)
 console.log(nums1B)
-mergeSortedArray(nums1C, mC, nums2C, nC)
+mergeSortedArray2(nums1C, mC, nums2C, nC)
 console.log(nums1C)
