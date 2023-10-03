@@ -38,9 +38,28 @@ const nC = 1
 
 // Function
 const mergeSortedArray = (nums1, m, nums2, n) => {
-    // loop through the nums2 array
-    for(let i = 0; i < nums2.length; i++) {
-        
+    // replace 0s in nums1 with values from nums2
+    for(let i = 0; i < nums1.length - m; i++) {
+        nums1[i + m] = nums2[i] 
+    }
+
+    // check if num1 has more than 1 index
+    if(nums1.length > 1) {
+        // loop through nums1
+        for(let i = 0; i < nums1.length;) {
+            // check if the value to the right is smaller than current
+            if(nums1[i + 1] < nums1[i]) {
+                // swap values
+                let temp = nums1[i]
+                nums1[i] = nums1[i + 1]
+                nums1[i + 1] = temp
+                // decrement index by one
+                i--
+            } else {
+                // increment index by one
+                i++
+            }
+        }
     }
 }
 
