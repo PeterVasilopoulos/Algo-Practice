@@ -20,35 +20,40 @@
 // sum -= 3
 // console.log(sum)
 
-console.log(2**0)
+// console.log(2**0)
 
-// variable to hold the sum, start at value of i
-let sum = i
+// // variable to hold the sum, start at value of i
+// let sum = i
     
-while(i !== j) {
-    // check if j is < or > i
-    if(j < i) {
-        i--
-    } else {
-        i++
-    }
+// while(i !== j) {
+//     // check if j is < or > i
+//     if(j < i) {
+//         i--
+//     } else {
+//         i++
+//     }
     
-    // add value to sum
-    sum += i
-    console.log("I: " + i + " SUM: " + sum)
+//     // add value to sum
+//     sum += i
+//     console.log("I: " + i + " SUM: " + sum)
+// }
+
+// while(j !== k) {
+//     // check if k is < or > j
+//     if(k < j) {
+//         j--
+//     } else {
+//         j++
+//     }
+    
+//     // add value to sum
+//     sum += j
+//     console.log("I: " + i + " SUM: " + sum)
+// }
+
+// return sum
+
+let test = "push"
+if(test === "push") {
+    console.log("yes")
 }
-
-while(j !== k) {
-    // check if k is < or > j
-    if(k < j) {
-        j--
-    } else {
-        j++
-    }
-    
-    // add value to sum
-    sum += j
-    console.log("I: " + i + " SUM: " + sum)
-}
-
-return sum
