@@ -15,3 +15,7 @@ console.log(arr)
 arr.unshift(0)
 
 console.log(arr)
+
+let sum = 10
+sum -= 3
+console.log(sum)
