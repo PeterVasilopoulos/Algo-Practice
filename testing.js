@@ -53,7 +53,13 @@
 
 // return sum
 
-let test = "push"
-if(test === "push") {
-    console.log("yes")
-}
+// let test = "push"
+// if(test === "push") {
+//     console.log("yes")
+// }
+
+
+let one = 100
+let two = 12
+
+console.log((one/two).toFixed(2))
