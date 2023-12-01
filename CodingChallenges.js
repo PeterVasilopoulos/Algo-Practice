@@ -54,4 +54,52 @@ function processLogs(logs, threshold) {
     return result
 }
 
-processLogs(logs1, threshold1)
+// processLogs(logs1, threshold1)
+
+
+
+
+const s1 = '|**|*|*'
+const startIndices1 = [1,1]
+const endIndices1 = [5,6]
+
+function numberOfItems(s, startIndices, endIndices) {
+    // create an array to hold the results
+    let results = []
+    
+    // loop through the startIndices array
+    for(let i = 0; i < startIndices.length; i++) {
+        // slice the string and hold in a variable
+        const subStr = s.slice(startIndices[i] - 1, endIndices[i])
+        
+        // slice the string again starting at first '|' and ending at last '|'
+        let finalStr = ""
+        if(subStr.indexOf("|") >= 0) {
+            finalStr = subStr.slice(subStr.indexOf("|") + 1, subStr.lastIndexOf("|"))
+        } else {
+            results.push(0)
+            continue
+        }
+        
+        // create variable to hold the number of items
+        let items = 0
+        
+        // loop through string to find the number of items
+        for(let j = 0; j < finalStr.length; j++) {
+            if(finalStr[j] === '*') {
+                items++
+            }
+        }
+        
+        // push items to results
+        results.push(items)
+    }
+    
+    // return results
+    return results
+}
+
+// console.log(numberOfItems(s1, startIndices1, endIndices1))
+
+let test1 = "this is pog"
+console.log(test1.indexOf('1'))
