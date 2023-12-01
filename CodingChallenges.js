@@ -99,7 +99,4 @@ function numberOfItems(s, startIndices, endIndices) {
     return results
 }
 
-// console.log(numberOfItems(s1, startIndices1, endIndices1))
-
-let test1 = "this is pog"
-console.log(test1.indexOf('1'))
+console.log(numberOfItems(s1, startIndices1, endIndices1))
