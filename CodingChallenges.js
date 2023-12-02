@@ -99,4 +99,145 @@ function numberOfItems(s, startIndices, endIndices) {
     return results
 }
 
-console.log(numberOfItems(s1, startIndices1, endIndices1))
+// console.log(numberOfItems(s1, startIndices1, endIndices1))
+
+
+
+portalUpdate1 = [6,6,2,-6,-2,-6]
+portalUpdate2 = [6,-6,6,-6]
+portalUpdate3 = [1,2,-1,2]
+
+function maximumBookCopies(portalUpdate) {
+    // create an object to hold the book data
+    const books = {}
+    // create an array to hold the results
+    let results = []
+    
+    // create an array to hold the book with the most copies
+    // bookId, copies
+    const max = [0, 0]
+    
+    // loop through the portalUpdate array
+    for(let i = 0; i < portalUpdate.length; i++) {
+        // create a variable to hold the book id
+        const bookId = Math.abs(portalUpdate[i])
+        
+        // determine if a book needs to be added or removed
+        if(portalUpdate[i] > 0) {
+            // add book
+            if(books.hasOwnProperty(bookId)) {
+                books[bookId]++
+            } else {
+                books[bookId] = 1
+            }
+            
+            // update the max if necessary
+            if(books[bookId] > max[1]) {
+                max[0] = bookId
+                max[1] = books[bookId]
+            }
+        } else if(portalUpdate[i] < 0) {
+            // remove book
+            books[bookId]--
+            
+            // update max
+            if(max[0] === bookId) {
+                max[1]--
+                
+                // check for new max
+                for(const id in books) {
+                    if(books[id] > max[1]) {
+                        max[0] = id
+                        max[1] = books[id]
+                    }
+                }
+            }
+            
+        }
+        
+        // push max coipes to results
+        results.push(max[1])
+    }
+    
+    // return results
+    return results
+}
+
+console.log(maximumBookCopies(portalUpdate3))
+
+
+
+
+const center1 = [-2,1,0]
+const d1 = 8
+
+function suitableLocations(center, d) {
+    // create an array to hold the suitable locations
+    let results = []
+    
+    // get the middle value in centers rounded down
+    let mid = Math.floor(center.length / 2)
+    let locationCheck = Math.floor(center.length / 2)
+    
+    
+    // DESCENDING LOOP
+    // start at the middle value in center
+    // create boolean to check if the location works
+    let suitable = true
+    while(suitable) {
+        // create a variable to hold the distance
+        let distance = 0
+        
+        // loop through the center array
+        for(let i = 0; i < center.length; i++) {
+            // calculate distance to and from location
+            distance += 2 * Math.abs(locationCheck - center[i])
+        }
+        
+        // check if distance is <= d
+        if(distance <= d) {
+            // add location to results
+            results.push(locationCheck)
+        } else {
+            // set suitable to false
+            suitable = false
+        }
+
+        // decrement locationCheck
+        locationCheck--
+    }
+    
+    // ASCENDING LOOP
+    // reset suitable variable
+    suitable = true
+    // reset location to +1 to where we started
+    locationCheck = mid + 1
+    
+    while(suitable) {
+        // create a variable to hold the distance
+        let distance = 0
+        
+        // loop through the center array
+        for(let i = 0; i < center.length; i++) {
+            // calculate distance to and from location
+            distance += 2 * Math.abs(locationCheck - center[i])
+        }
+        
+        // check if distance is <= d
+        if(distance <= d) {
+            // add location to results
+            results.push(locationCheck)
+        } else {
+            // set suitable to false
+            suitable = false
+        }
+
+        // increment locationCheck
+        locationCheck++
+    }
+
+    // return length of results
+    return results.length
+}
+
+// console.log(suitableLocations(center1, d1))
