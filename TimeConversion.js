@@ -9,9 +9,9 @@ function timeConversion(s) {
 
     
     // if time is AM
-    if(s.slice(-2) == "AM") {
+    if(s.slice(-2) === "AM") {
         // check if time starts with 12
-        if(s.slice(0, 2) == '12') {
+        if(s.slice(0, 2) === '12') {
             converted = "00"
         } else {
             converted = s.slice(0, 2)
@@ -19,12 +19,12 @@ function timeConversion(s) {
     }
 
     // if time is PM
-    if(s.slice(-2) == "PM") {
+    if(s.slice(-2) === "PM") {
         // check if time starts with 12
-        if(s.slice(0, 2) == '12') {
+        if(s.slice(0, 2) === '12') {
             converted = s.slice(0, 2)
         } else {
-            converted = parseInt(s.slice(1)) + 12
+            converted = parseInt(s.slice(0, 2)) + 12
         }
     }
 
