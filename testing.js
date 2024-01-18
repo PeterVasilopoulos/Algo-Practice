@@ -133,6 +133,14 @@
 
 // console.log(test)
 
-const s1 = '12:01:00PM'
+// const s1 = '12:01:00PM'
 
-console.log(s1.slice(0, 2))
+// console.log(s1.slice(0, 2))
+
+
+
+
+console.log(44 % 5)
+if(44 % 5 > 2) {
+    console.log("yes")
+}
